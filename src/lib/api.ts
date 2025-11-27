@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.bluesealwp.ae';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.bluesealwp.ae/api';
 
 class ApiService {
   private getAuthToken(): string | null {
