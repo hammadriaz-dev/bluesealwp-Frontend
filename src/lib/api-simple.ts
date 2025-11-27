@@ -1,5 +1,5 @@
 // lib/api-simple.ts
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://bluesealwp.ae/api'
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.bluesealwp.ae'
 
 export const simpleApi = {
   async request(endpoint: string, options: any = {}) {
