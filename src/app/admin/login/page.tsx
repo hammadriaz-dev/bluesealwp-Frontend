@@ -124,13 +124,13 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+          {/* <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
             <p className="text-sm text-gray-600 text-center">
               <strong>Demo Credentials:</strong><br />
               Email: admin@example.com<br />
               Password: password123
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

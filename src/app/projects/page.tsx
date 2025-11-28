@@ -4,10 +4,10 @@ import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import AnimatedSection from '@/components/ui/AnimatedSection'
-import { 
-  ArrowLeft, 
-  Building, 
-  MapPin, 
+import {
+  ArrowLeft,
+  Building,
+  MapPin,
   Calendar,
   Users,
   ShieldCheck,
@@ -50,7 +50,7 @@ const projectsData = [
       '10-Year Maintenance'
     ],
     technologies: ['GRP Lamination', 'Chemical Resistant Coating', 'Structural Reinforcement'],
-    image: '/api/placeholder/800/600',
+    image: '/images/projects/project-1.jpeg',
     status: 'completed',
     size: 'Large',
     value: 'Premium'
@@ -75,7 +75,7 @@ const projectsData = [
       'Quality Assurance'
     ],
     technologies: ['4mm GRP Lamination', 'Non-toxic Resin', 'Quality Certification'],
-    image: '/api/placeholder/800/600',
+    image: '/images/projects/project-2.jpeg',
     status: 'completed',
     size: 'Large',
     value: 'High'
@@ -100,7 +100,7 @@ const projectsData = [
       'Quality Workmanship'
     ],
     technologies: ['GRP Lining', 'Waterproofing', 'Tank Protection'],
-    image: '/api/placeholder/800/600',
+    image: '/images/projects/project-3.jpeg',
     status: 'completed',
     size: 'Medium',
     value: 'Standard'
@@ -125,7 +125,7 @@ const projectsData = [
       'Long-term Durability'
     ],
     technologies: ['Industrial GRP', 'Temperature Resistant', 'Chemical Protection'],
-    image: '/api/placeholder/800/600',
+    image: '/images/projects/project-4.jpeg',
     status: 'completed',
     size: 'Medium',
     value: 'High'
@@ -133,7 +133,7 @@ const projectsData = [
   {
     id: 5,
     title: 'Residential Tower Waterproofing',
-    description: 'Comprehensive waterproofing solutions for high-rise residential tower including membrane and injection systems.',
+    description: 'Comprehensive waterproofing solutions for high-rise residential tower.',
     category: 'waterproofing',
     client: 'Private Developer',
     contractor: 'Multiple Contractors',
@@ -150,7 +150,7 @@ const projectsData = [
       'Basement Waterproofing'
     ],
     technologies: ['Membrane Systems', 'Injection Treatment', 'Cementitious Coating'],
-    image: '/api/placeholder/800/600',
+    image: '/images/projects/project-5.jpeg',
     status: 'completed',
     size: 'Large',
     value: 'Premium'
@@ -175,7 +175,7 @@ const projectsData = [
       'Custom Solutions'
     ],
     technologies: ['GRP Lining', 'Chemical Resistant', 'Custom Engineering'],
-    image: '/api/placeholder/800/600',
+    image: '/images/projects/project-6.jpeg',
     status: 'completed',
     size: 'Various',
     value: 'High'
@@ -183,7 +183,7 @@ const projectsData = [
   {
     id: 7,
     title: 'Green Roof System Installation',
-    description: 'COMBO roof system installation with 40% energy savings and 25-year leakage warranty.',
+    description: 'COMBO roof system installation with energy savings.',
     category: 'green-roof',
     client: 'Commercial Building Owners',
     contractor: 'Various Contractors',
@@ -200,7 +200,7 @@ const projectsData = [
       'Cost Effective'
     ],
     technologies: ['Polyurethane Foam', 'Acrylic Waterproofing', 'Spray Technology'],
-    image: '/api/placeholder/800/600',
+    image: '/images/projects/project-7.jpeg',
     status: 'completed',
     size: 'Large',
     value: 'Premium'
@@ -208,7 +208,7 @@ const projectsData = [
   {
     id: 8,
     title: 'Mosque Construction Projects',
-    description: 'Waterproofing and GRP lining works for multiple mosque projects across Dubai.',
+    description: 'Waterproofing and GRP lining works for mosque projects.',
     category: 'waterproofing',
     client: 'Various Mosque Committees',
     contractor: 'Local Contractors',
@@ -225,12 +225,13 @@ const projectsData = [
       'Community Focus'
     ],
     technologies: ['GRP Lining', 'Membrane Waterproofing', 'Quality Assurance'],
-    image: '/api/placeholder/800/600',
+    image: '/images/projects/project-8.jpeg',
     status: 'completed',
     size: 'Medium',
     value: 'Standard'
   }
 ]
+
 
 const categories = [
   { id: 'all', name: 'All Projects', icon: Building, count: projectsData.length },
@@ -260,7 +261,7 @@ export default function ProjectsPage() {
       const matchesSize = selectedSize === 'All' || project.size === selectedSize
       const matchesValue = selectedValue === 'All' || project.value === selectedValue
       const matchesYear = selectedYear === 'All' || project.year === selectedYear
-      const matchesSearch = searchQuery === '' || 
+      const matchesSearch = searchQuery === '' ||
         project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.client.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -292,20 +293,20 @@ export default function ProjectsPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center text-white">
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="inline-flex items-center text-white/80 hover:text-white mb-8 transition-colors duration-300"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Home
               </Link>
-              
+
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
                 Our <span className="bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">Projects</span>
               </h1>
-              
+
               <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed mb-8">
-                Explore our portfolio of successful waterproofing and insulation projects 
+                Explore our portfolio of successful waterproofing and insulation projects
                 across the UAE, showcasing our expertise and commitment to quality.
               </p>
 
@@ -377,7 +378,7 @@ export default function ProjectsPage() {
                   <option key={size} value={size}>Size: {size}</option>
                 ))}
               </select>
-              
+
               <select
                 value={selectedValue}
                 onChange={(e) => setSelectedValue(e.target.value)}
@@ -387,7 +388,7 @@ export default function ProjectsPage() {
                   <option key={value} value={value}>Value: {value}</option>
                 ))}
               </select>
-              
+
               <select
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(e.target.value)}
@@ -423,7 +424,7 @@ export default function ProjectsPage() {
                   <option key={size} value={size}>Size: {size}</option>
                 ))}
               </select>
-              
+
               <select
                 value={selectedValue}
                 onChange={(e) => setSelectedValue(e.target.value)}
@@ -433,7 +434,7 @@ export default function ProjectsPage() {
                   <option key={value} value={value}>Value: {value}</option>
                 ))}
               </select>
-              
+
               <select
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(e.target.value)}
@@ -473,19 +474,17 @@ export default function ProjectsPage() {
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`flex items-center gap-2 px-4 py-3 rounded-xl transition-all duration-200 ${
-                    selectedCategory === category.id
+                  className={`flex items-center gap-2 px-4 py-3 rounded-xl transition-all duration-200 ${selectedCategory === category.id
                       ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/25'
                       : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
-                  }`}
+                    }`}
                 >
                   <IconComponent className="h-4 w-4" />
                   <span className="font-medium">{category.name}</span>
-                  <span className={`px-2 py-1 text-xs rounded-full ${
-                    selectedCategory === category.id
+                  <span className={`px-2 py-1 text-xs rounded-full ${selectedCategory === category.id
                       ? 'bg-white/20 text-white'
                       : 'bg-gray-100 text-gray-600'
-                  }`}>
+                    }`}>
                     {category.count}
                   </span>
                 </button>
@@ -532,15 +531,19 @@ export default function ProjectsPage() {
                     >
                       {/* Project Image */}
                       <div className="relative h-48 bg-gradient-to-br from-blue-100 to-cyan-100 overflow-hidden">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                         <div className="absolute top-4 right-4">
-                          <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-                            project.value === 'Premium' 
+                          <span className={`px-3 py-1 rounded-full text-xs font-bold ${project.value === 'Premium'
                               ? 'bg-yellow-100 text-yellow-800'
                               : project.value === 'High'
-                              ? 'bg-green-100 text-green-800'
-                              : 'bg-blue-100 text-blue-800'
-                          }`}>
+                                ? 'bg-green-100 text-green-800'
+                                : 'bg-blue-100 text-blue-800'
+                            }`}>
                             {project.value}
                           </span>
                         </div>
@@ -630,10 +633,10 @@ export default function ProjectsPage() {
               Ready to Start Your Project?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Let's discuss your waterproofing and insulation needs. Get a free consultation 
+              Let's discuss your waterproofing and insulation needs. Get a free consultation
               and quote for your next project.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/contact"

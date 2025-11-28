@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
         />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/images/logo.jpg" type="image/svg+xml" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#0EA5E9" />
         
@@ -163,7 +163,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
         {/* WhatsApp Button */}
         <WhatsAppButton 
-          phoneNumber="+97142270123"
+          phoneNumber="+971564821506"
           message="Hello Blue Seal, I'm interested in your waterproofing and insulation services. Could you provide more information?"
           companyName="Blue Seal"
           workingHours={{ start: 8, end: 18 }}

@@ -197,9 +197,9 @@ export default function Home() {
       </section>
       {/* <OurProcess processes={processes} /> */}
 
-      <section className="w-full">
-        <TeamSection /> {/* No props needed now */}
-      </section>
+      {/* <section className="w-full">
+        <TeamSection />
+      </section> */}
 
 
 

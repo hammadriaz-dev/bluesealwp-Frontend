@@ -1,13 +1,14 @@
 'use client'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
+import Image from "next/image"
+import {
+  Mail,
+  Phone,
+  MapPin,
   Clock,
-  Facebook, 
-  Linkedin, 
+  Facebook,
+  Linkedin,
   Instagram,
   ArrowUp,
   MessageCircle,
@@ -79,8 +80,8 @@ export default function Footer() {
   const contactInfo = [
     {
       icon: Phone,
-      content: '+971 4 227 0123',
-      href: 'tel:+97142270123'
+      content: '+971 56 482 1506',
+      href: 'tel:+971564821506'
     },
     {
       icon: Mail,
@@ -130,17 +131,16 @@ export default function Footer() {
         <div className="absolute inset-0 opacity-10">
           <div className="w-full h-full bg-[linear-gradient(rgba(14,165,233,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.1)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
         </div>
-        
+
         {/* Floating Construction Elements */}
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className={`absolute ${
-              i % 5 === 0 ? 'w-2 h-2 bg-blue-400/40' : 
-              i % 5 === 1 ? 'w-1 h-1 bg-emerald-400/40' : 
-              i % 5 === 2 ? 'w-3 h-3 bg-sky-400/40' : 
-              'w-1 h-1 bg-white/40'
-            } rounded-sm blur-sm`}
+            className={`absolute ${i % 5 === 0 ? 'w-2 h-2 bg-blue-400/40' :
+                i % 5 === 1 ? 'w-1 h-1 bg-emerald-400/40' :
+                  i % 5 === 2 ? 'w-3 h-3 bg-sky-400/40' :
+                    'w-1 h-1 bg-white/40'
+              } rounded-sm blur-sm`}
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -239,28 +239,21 @@ export default function Footer() {
               <Link href="/" className="inline-block">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="flex items-center space-x-3 group"
+                  className="flex items-center group"
                 >
                   <motion.div
-                    className="relative w-12 h-12 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-500/30"
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.6 }}
+                    className="relative w-28 h-14 sm:w-32 sm:h-16"
+                    whileHover={{ rotate: 3 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    <Shield className="h-6 w-6 text-white" />
-                    <motion.div
-                      className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent"
-                      animate={{ opacity: [0.5, 1, 0.5] }}
-                      transition={{ duration: 2, repeat: Infinity }}
+                    <Image
+                      src="/images/logo-removebg.png"
+                      alt="Blue Seal Logo"
+                      fill
+                      className="object-contain rounded-xl"
+                      priority
                     />
                   </motion.div>
-                  <div className="flex flex-col">
-                    <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent leading-none">
-                      Blue Seal
-                    </span>
-                    <span className="text-sky-300 text-sm leading-none font-medium">
-                      Waterproofing & Insulation
-                    </span>
-                  </div>
                 </motion.div>
               </Link>
 
@@ -472,7 +465,7 @@ export default function Footer() {
               <p className="text-gray-300 text-base font-light">
                 Get a free consultation for your waterproofing and insulation needs.
               </p>
-              
+
               <div className="space-y-4">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -488,9 +481,9 @@ export default function Footer() {
                     <MessageCircle className="h-5 w-5 mr-3 group-hover:scale-110 transition-transform" />
                     Free Consultation
                   </Link>
-                  
+
                   <a
-                    href="tel:+97142270123"
+                    href="tel:+971564821506"
                     className="px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white rounded-2xl font-semibold transition-all duration-300 text-base flex items-center justify-center group"
                   >
                     <Phone className="h-5 w-5 mr-3 group-hover:scale-110 transition-transform" />
@@ -516,10 +509,10 @@ export default function Footer() {
                     Water leakage emergencies? Call us anytime for immediate assistance.
                   </p>
                   <a
-                    href="tel:+97142270123"
+                    href="tel:+971564821506"
                     className="text-white font-bold text-sm hover:underline mt-2 inline-block"
                   >
-                    +971 4 227 0123
+                    +971 56 482 1506
                   </a>
                 </div>
               </motion.div>

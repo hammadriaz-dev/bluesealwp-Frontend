@@ -174,9 +174,9 @@ export default function Contact() {
     {
       icon: Phone,
       title: 'Phone',
-      content: '+971 4 227 0123',
+      content: '+971564821506',
       description: 'Sun-Thu: 8:00 AM - 6:00 PM',
-      link: 'tel:+97142270123',
+      link: 'tel:+971564821506',
       color: 'from-blue-500 to-sky-600'
     },
     {
@@ -246,7 +246,7 @@ export default function Contact() {
     <div className="min-h-screen bg-white">
       {/* Floating quick action - WhatsApp */}
       <a
-        href="https://wa.me/97142270123"
+        href="https://wa.me/971564821506"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 px-4 py-3 rounded-2xl text-white bg-green-600 hover:bg-green-700 shadow-xl transition-transform hover:-translate-y-0.5"
@@ -428,7 +428,7 @@ export default function Contact() {
                             Send Another Inquiry
                           </motion.button>
                           <a
-                            href="tel:+97142270123"
+                            href="tel:+971564821506"
                             className="inline-flex items-center px-6 py-3 text-green-600 bg-green-50 hover:bg-green-100 rounded-xl font-semibold transition-colors duration-200"
                           >
                             <Phone className="w-4 h-4 mr-2" />
@@ -743,7 +743,7 @@ export default function Contact() {
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">For emergency leaks or urgent waterproofing issues, contact us immediately.</p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a href="tel:+97142270123" className="group inline-flex items-center px-8 py-4 text-lg font-semibold rounded-2xl text-blue-600 bg-white hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              <a href="tel:+971564821506" className="group inline-flex items-center px-8 py-4 text-lg font-semibold rounded-2xl text-blue-600 bg-white hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                 <Phone className="h-5 w-5 mr-2" />
                 Call Emergency Line
               </a>

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Image from "next/image";
 import {
   Menu,
   X,
@@ -53,7 +54,7 @@ interface NavItem {
 }
 
 // Constants
-const CONTACT_PHONE = '+971 4 227 0123'
+const CONTACT_PHONE = '+971 56 482 1506'
 const CONTACT_EMAIL = 'contact@blueseal.ae'
 
 const navigation: NavItem[] = [
@@ -297,7 +298,7 @@ export default function Navbar() {
   // Check if item is active
   const isItemActive = useCallback((item: NavItem) => {
     if (pathname === item.href) return true
-    if (item.dropdown && item.dropdown.some(d => 
+    if (item.dropdown && item.dropdown.some(d =>
       pathname === d.href || pathname.startsWith(`${d.href}/`)
     )) return true
     return false
@@ -309,11 +310,10 @@ export default function Navbar() {
       <div className="h-[90px] sm:h-[100px]" />
 
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/98 backdrop-blur-xl shadow-lg border-b border-gray-200/60'
-            : 'bg-white/95 backdrop-blur-lg border-b border-gray-200/40'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? 'bg-white/98 backdrop-blur-xl shadow-lg border-b border-gray-200/60'
+          : 'bg-white/95 backdrop-blur-lg border-b border-gray-200/40'
+          }`}
         ref={dropdownRef}
       >
         {/* Professional Top Bar - Waterproofing Company */}
@@ -322,7 +322,7 @@ export default function Navbar() {
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:20px_20px] animate-pulse" />
           </div>
-          
+
           <div className="max-w-7xl mx-auto px-3 sm:px-4">
             <div className="flex flex-col sm:flex-row justify-between items-center py-2 sm:py-2 text-sm">
               {/* Left side - Contact info */}
@@ -336,7 +336,7 @@ export default function Navbar() {
                   <span className="font-medium text-xs sm:text-sm">{CONTACT_EMAIL}</span>
                 </div>
               </div>
-              
+
               {/* Center - Professional Value Proposition */}
               <div className="flex flex-col sm:flex-row items-center gap-1 mb-1 sm:mb-0">
                 <div className="flex items-center space-x-1 bg-white/20 px-2 py-1 rounded-full backdrop-blur-sm border border-white/30">
@@ -345,9 +345,9 @@ export default function Navbar() {
                     DUBAI MUNICIPALITY APPROVED
                   </span>
                 </div>
-                <div className="flex items-center space-x-1 bg-gradient-to-r from-blue-500 to-cyan-600 px-3 py-1 rounded-full shadow-lg">
+                {/* <div className="flex items-center space-x-1 bg-gradient-to-r from-blue-500 to-cyan-600 px-3 py-1 rounded-full shadow-lg">
                   <span className="font-extrabold text-white text-xs">25-YEAR WARRANTY</span>
-                </div>
+                </div> */}
               </div>
 
               {/* Right side - Timing */}
@@ -369,22 +369,20 @@ export default function Navbar() {
             <div className="flex items-center mr-4 sm:mr-6 -ml-2 sm:-ml-3 lg:-ml-4">
               <Link
                 href="/"
-                className="flex-shrink-0 flex items-center space-x-2 sm:space-x-3 group"
+                className="flex-shrink-0 flex items-center group"
                 onClick={() => setIsOpen(false)}
               >
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg shadow-blue-600/30">
-                  <Droplets className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-blue-600 bg-clip-text text-transparent leading-none">
-                    Blue Seal
-                  </span>
-                  <span className="text-[10px] sm:text-xs text-gray-500 leading-none mt-0.5 sm:mt-1 font-medium">
-                    Waterproofing & Insulation
-                  </span>
-                </div>
+                <Image
+                  src="/images/logo.jpg"
+                  alt="Blue Seal Logo"
+                  width={200}
+                  height={80}
+                  className="object-contain h-12 sm:h-14 lg:h-16 w-auto"
+                  priority
+                />
               </Link>
             </div>
+
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1 flex-1 justify-end">
@@ -402,19 +400,17 @@ export default function Navbar() {
                   >
                     <Link
                       href={item.href}
-                      className={`flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
-                        isActive
-                          ? 'text-blue-700 bg-blue-50 border border-blue-200'
-                          : 'text-gray-700 hover:text-blue-700 hover:bg-gray-50'
-                      }`}
+                      className={`flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${isActive
+                        ? 'text-blue-700 bg-blue-50 border border-blue-200'
+                        : 'text-gray-700 hover:text-blue-700 hover:bg-gray-50'
+                        }`}
                     >
                       <IconComponent className="h-4 w-4" />
                       <span className="whitespace-nowrap">{item.name}</span>
                       {item.dropdown && (
                         <ChevronDown
-                          className={`h-3 w-3 transition-transform duration-200 ${
-                            activeDropdown === item.name ? 'rotate-180' : ''
-                          }`}
+                          className={`h-3 w-3 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''
+                            }`}
                         />
                       )}
                     </Link>
@@ -422,11 +418,10 @@ export default function Navbar() {
                     {/* Dropdown - Only for Services */}
                     {item.dropdown && item.name === 'Services' && (
                       <div
-                        className={`absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-xl shadow-xl shadow-blue-500/10 transition-all duration-200 transform origin-top ${
-                          activeDropdown === item.name
-                            ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
-                            : 'opacity-0 scale-95 -translate-y-1 pointer-events-none'
-                        }`}
+                        className={`absolute top-full left-0 mt-1 w-80 bg-white border border-gray-200 rounded-xl shadow-xl shadow-blue-500/10 transition-all duration-200 transform origin-top ${activeDropdown === item.name
+                          ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
+                          : 'opacity-0 scale-95 -translate-y-1 pointer-events-none'
+                          }`}
                         onMouseEnter={() => handleDropdownEnter(item.name)}
                         onMouseLeave={handleDropdownLeave}
                       >
@@ -442,30 +437,27 @@ export default function Navbar() {
                               <Link
                                 key={dropdownItem.name}
                                 href={dropdownItem.href}
-                                className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-all duration-200 group ${
-                                  isDropdownActive
-                                    ? 'bg-blue-50 text-blue-700 font-semibold'
-                                    : 'text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 hover:text-blue-600'
-                                }`}
+                                className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-all duration-200 group ${isDropdownActive
+                                  ? 'bg-blue-50 text-blue-700 font-semibold'
+                                  : 'text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 hover:text-blue-600'
+                                  }`}
                               >
                                 <div className="flex items-center space-x-3">
                                   <div
-                                    className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 ${
-                                      isDropdownActive ? 'bg-blue-600' : 'bg-gray-300 group-hover:bg-blue-600'
-                                    }`}
+                                    className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 ${isDropdownActive ? 'bg-blue-600' : 'bg-gray-300 group-hover:bg-blue-600'
+                                      }`}
                                   />
                                   <span className="whitespace-nowrap text-xs">{dropdownItem.name}</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                   {dropdownItem.badge && (
                                     <span
-                                      className={`px-2 py-0.5 text-xs rounded-full font-medium ${
-                                        dropdownItem.badge === 'Popular'
-                                          ? 'bg-orange-100 text-orange-600'
-                                          : dropdownItem.badge === 'Trending'
+                                      className={`px-2 py-0.5 text-xs rounded-full font-medium ${dropdownItem.badge === 'Popular'
+                                        ? 'bg-orange-100 text-orange-600'
+                                        : dropdownItem.badge === 'Trending'
                                           ? 'bg-blue-100 text-blue-600'
                                           : 'bg-green-100 text-green-600'
-                                      }`}
+                                        }`}
                                     >
                                       {dropdownItem.badge}
                                     </span>
@@ -482,11 +474,10 @@ export default function Navbar() {
                     {showPreview && (
                       <div
                         ref={previewRef}
-                        className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 bg-white border border-gray-200 rounded-2xl shadow-2xl shadow-blue-500/20 transition-all duration-200 origin-top ${
-                          activePreview === item.name
-                            ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
-                            : 'opacity-0 scale-95 -translate-y-1 pointer-events-none'
-                        }`}
+                        className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 bg-white border border-gray-200 rounded-2xl shadow-2xl shadow-blue-500/20 transition-all duration-200 origin-top ${activePreview === item.name
+                          ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
+                          : 'opacity-0 scale-95 -translate-y-1 pointer-events-none'
+                          }`}
                         onMouseEnter={() => handlePreviewEnter(item.name)}
                         onMouseLeave={handlePreviewLeave}
                         style={{ zIndex: 1000, backdropFilter: 'blur(20px)' }}
@@ -630,11 +621,10 @@ export default function Navbar() {
                           {/* Services Dropdown Button */}
                           <button
                             onClick={() => handleDropdownClick(item.name)}
-                            className={`flex items-center justify-between w-full px-3 py-2.5 rounded-lg text-base font-semibold transition-all duration-200 ${
-                              isActive
-                                ? 'bg-blue-50 text-blue-700 border border-blue-200'
-                                : 'text-gray-700 hover:text-blue-700 hover:bg-gray-50'
-                            }`}
+                            className={`flex items-center justify-between w-full px-3 py-2.5 rounded-lg text-base font-semibold transition-all duration-200 ${isActive
+                              ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                              : 'text-gray-700 hover:text-blue-700 hover:bg-gray-50'
+                              }`}
                             aria-expanded={activeDropdown === item.name}
                           >
                             <div className="flex items-center space-x-3">
@@ -642,9 +632,8 @@ export default function Navbar() {
                               <span>{item.name}</span>
                             </div>
                             <ChevronDown
-                              className={`h-4 w-4 transition-transform duration-200 ${
-                                activeDropdown === item.name ? 'rotate-180' : ''
-                              }`}
+                              className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''
+                                }`}
                             />
                           </button>
 
@@ -658,11 +647,10 @@ export default function Navbar() {
                                   <Link
                                     key={dropdownItem.name}
                                     href={dropdownItem.href}
-                                    className={`flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm transition-all duration-200 group ${
-                                      isDropdownActive
-                                        ? 'bg-blue-50 text-blue-700 font-semibold'
-                                        : 'text-gray-600 hover:text-blue-700 hover:bg-gray-50'
-                                    }`}
+                                    className={`flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm transition-all duration-200 group ${isDropdownActive
+                                      ? 'bg-blue-50 text-blue-700 font-semibold'
+                                      : 'text-gray-600 hover:text-blue-700 hover:bg-gray-50'
+                                      }`}
                                     onClick={() => {
                                       setIsOpen(false)
                                       setActiveDropdown(null)
@@ -670,23 +658,21 @@ export default function Navbar() {
                                   >
                                     <div className="flex items-center space-x-3">
                                       <div
-                                        className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 ${
-                                          isDropdownActive ? 'bg-blue-600' : 'bg-gray-300 group-hover:bg-blue-600'
-                                        }`}
+                                        className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 ${isDropdownActive ? 'bg-blue-600' : 'bg-gray-300 group-hover:bg-blue-600'
+                                          }`}
                                       />
                                       <span className="text-xs">{dropdownItem.name}</span>
                                     </div>
-                                    
+
                                     <div className="flex items-center gap-2 pl-2">
                                       {dropdownItem.badge && (
                                         <span
-                                          className={`px-2 py-0.5 text-xs rounded-full whitespace-nowrap ${
-                                            dropdownItem.badge === 'Popular'
-                                              ? 'bg-orange-100 text-orange-600'
-                                              : dropdownItem.badge === 'Trending'
+                                          className={`px-2 py-0.5 text-xs rounded-full whitespace-nowrap ${dropdownItem.badge === 'Popular'
+                                            ? 'bg-orange-100 text-orange-600'
+                                            : dropdownItem.badge === 'Trending'
                                               ? 'bg-blue-100 text-blue-600'
                                               : 'bg-green-100 text-green-600'
-                                          }`}
+                                            }`}
                                         >
                                           {dropdownItem.badge}
                                         </span>
@@ -702,11 +688,10 @@ export default function Navbar() {
                         /* Regular Menu Items */
                         <Link
                           href={item.href}
-                          className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-base font-semibold transition-all duration-200 ${
-                            isActive
-                              ? 'bg-blue-50 text-blue-700 border border-blue-200'
-                              : 'text-gray-700 hover:text-blue-700 hover:bg-gray-50'
-                          }`}
+                          className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-base font-semibold transition-all duration-200 ${isActive
+                            ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                            : 'text-gray-700 hover:text-blue-700 hover:bg-gray-50'
+                            }`}
                           onClick={() => {
                             setIsOpen(false)
                             setActivePreview(null)
